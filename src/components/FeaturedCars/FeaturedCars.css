@@ -1,0 +1,252 @@
+.featured {
+    background: #0c0c10;
+    padding: 120px 0;
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    color: #fff;
+}
+
+.featured__inner {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 32px;
+}
+
+/* Заголовок блока */
+.featured__head {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 24px;
+    margin-bottom: 56px;
+    flex-wrap: wrap;
+}
+
+.featured__eyebrow {
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #ff8a00;
+    margin-bottom: 14px;
+}
+
+.featured__title {
+    font-size: 46px;
+    font-weight: 800;
+    letter-spacing: -1.5px;
+    line-height: 1.1;
+    margin: 0;
+}
+
+.featured__title-accent {
+    background: linear-gradient(90deg, #ff8a00, #ff3b30);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.featured__all {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 26px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    font-family: inherit;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    white-space: nowrap;
+}
+
+.featured__all:hover {
+    background: rgba(255, 255, 255, 0.14);
+    border-color: rgba(255, 255, 255, 0.3);
+    transform: translateX(3px);
+}
+
+/* Сетка карточек */
+.featured__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+}
+
+/* Карточка */
+.car-card {
+    position: relative;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 24px;
+    overflow: hidden;
+    transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+}
+
+.car-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(255, 138, 0, 0.4);
+    box-shadow: 0 30px 60px rgba(255, 80, 40, 0.15);
+}
+
+/* Изображение */
+.car-card__image {
+    position: relative;
+    height: 220px;
+    overflow: hidden;
+}
+
+.car-card__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.car-card:hover .car-card__image img {
+    transform: scale(1.08);
+}
+
+.car-card__image::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 40%, rgba(12, 12, 16, 0.85) 100%);
+    pointer-events: none;
+}
+
+.car-card__tag {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    z-index: 2;
+    padding: 6px 14px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, #ff8a00, #ff3b30);
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    box-shadow: 0 6px 18px rgba(255, 80, 40, 0.45);
+}
+
+.car-card__favorite {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    z-index: 2;
+    width: 38px;
+    height: 38px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.45);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.car-card__favorite:hover {
+    background: #ff3b30;
+    border-color: #ff3b30;
+    transform: scale(1.1);
+}
+
+/* Тело карточки */
+.car-card__body {
+    padding: 22px 24px 24px;
+}
+
+.car-card__brand {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.5);
+    margin-bottom: 6px;
+}
+
+.car-card__model {
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: -0.4px;
+    margin: 0 0 16px;
+    color: #fff;
+}
+
+/* Характеристики */
+.car-card__specs {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.6);
+    margin-bottom: 22px;
+}
+
+.car-card__dot {
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.35);
+}
+
+/* Футер карточки */
+.car-card__footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding-top: 18px;
+    border-top: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.car-card__price {
+    font-size: 20px;
+    font-weight: 800;
+    letter-spacing: -0.4px;
+    color: #fff;
+}
+
+.car-card__btn {
+    padding: 11px 22px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, #ff8a00, #ff3b30);
+    color: #fff;
+    border: none;
+    font-size: 13px;
+    font-weight: 600;
+    font-family: inherit;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    white-space: nowrap;
+}
+
+.car-card__btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 24px rgba(255, 80, 40, 0.5);
+}
+
+/* Адаптив */
+@media (max-width: 1100px) {
+    .featured { padding: 90px 0; }
+    .featured__grid { grid-template-columns: repeat(2, 1fr); gap: 22px; }
+    .featured__title { font-size: 38px; }
+}
+
+@media (max-width: 700px) {
+    .featured { padding: 70px 0; }
+    .featured__inner { padding: 0 20px; }
+    .featured__grid { grid-template-columns: 1fr; }
+    .featured__title { font-size: 30px; }
+    .featured__head { margin-bottom: 36px; }
+    .featured__all { width: 100%; justify-content: center; }
+    .car-card__image { height: 200px; }
+}
