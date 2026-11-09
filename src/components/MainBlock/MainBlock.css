@@ -1,0 +1,220 @@
+.main {
+    position: relative;
+    height: 800px;
+    width: 100%;
+    background: url("../../assets/car.jpg") no-repeat center;
+    background-size: cover;
+    background-attachment: fixed;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+/* Тёмный градиент-оверлей для читаемости текста */
+.main__overlay {
+    position: absolute;
+    inset: 0;
+    background:
+            linear-gradient(90deg, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.5) 55%, rgba(0, 0, 0, 0.2) 100%),
+            linear-gradient(0deg, rgba(0, 0, 0, 0.6) 0%, transparent 40%);
+    z-index: 1;
+}
+
+.main__content {
+    position: relative;
+    z-index: 2;
+    max-width: 680px;
+    margin-left: 8%;
+    color: #fff;
+    animation: fadeUp 0.9s ease-out;
+}
+
+/* Бейдж */
+.main__badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 18px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 999px;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+    margin-bottom: 28px;
+}
+
+.main__badge-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #ff3b30;
+    box-shadow: 0 0 12px #ff3b30;
+    animation: pulse 2s infinite;
+}
+
+/* Заголовок */
+.main__title {
+    font-size: 68px;
+    line-height: 1.05;
+    font-weight: 800;
+    letter-spacing: -2px;
+    margin: 0 0 24px;
+}
+
+.main__title-accent {
+    display: block;
+    background: linear-gradient(90deg, #ff8a00, #ff3b30);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Подзаголовок */
+.main__subtitle {
+    font-size: 18px;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.78);
+    margin: 0 0 40px;
+    max-width: 540px;
+}
+
+/* Кнопки */
+.main__actions {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 60px;
+    flex-wrap: wrap;
+}
+
+.main__btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 16px 32px;
+    border: none;
+    border-radius: 999px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    font-family: inherit;
+}
+
+.main__btn--primary {
+    background: linear-gradient(90deg, #ff8a00, #ff3b30);
+    color: #fff;
+    box-shadow: 0 12px 30px rgba(255, 80, 40, 0.4);
+}
+
+.main__btn--primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 18px 40px rgba(255, 80, 40, 0.55);
+}
+
+.main__btn--ghost {
+    background: rgba(255, 255, 255, 0.08);
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
+}
+
+.main__btn--ghost:hover {
+    background: rgba(255, 255, 255, 0.18);
+    border-color: rgba(255, 255, 255, 0.5);
+    transform: translateY(-3px);
+}
+
+/* Статистика */
+.main__stats {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.main__stat {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.main__stat-value {
+    font-size: 30px;
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+
+.main__stat-label {
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.6);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.main__stat-divider {
+    width: 1px;
+    height: 44px;
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* Индикатор скролла */
+.main__scroll {
+    position: absolute;
+    bottom: 32px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+.main__scroll-line {
+    width: 1px;
+    height: 40px;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.8), transparent);
+    animation: scrollLine 2s infinite;
+}
+
+/* Анимации */
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+}
+
+@keyframes scrollLine {
+    0% { transform: scaleY(0); transform-origin: top; }
+    50% { transform: scaleY(1); transform-origin: top; }
+    51% { transform-origin: bottom; }
+    100% { transform: scaleY(0); transform-origin: bottom; }
+}
+
+/* Адаптив */
+@media (max-width: 900px) {
+    .main { height: auto; padding: 100px 0; }
+    .main__content { margin: 0 24px; }
+    .main__title { font-size: 44px; }
+    .main__subtitle { font-size: 16px; }
+    .main__stats { gap: 24px; flex-wrap: wrap; }
+    .main__stat-divider { display: none; }
+    .main__scroll { display: none; }
+}
+
+@media (max-width: 500px) {
+    .main__title { font-size: 34px; }
+    .main__btn { width: 100%; justify-content: center; }
+    .main__stats { gap: 20px; }
+    .main__stat-value { font-size: 22px; }
+}
